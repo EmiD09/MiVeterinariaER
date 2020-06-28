@@ -8,33 +8,35 @@ namespace MiVeterinaria.Web.Data.Entities
 {
     public class Propietario
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Display(Name = "Documento")]
         [MaxLength(30, ErrorMessage = "El {0} campo no puede tener más de {1} caracteres.")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string documento { get; set; }
+        public string Documento { get; set; }
         [Display(Name = "Nombre")]
         [MaxLength(50, ErrorMessage = "El {0} campo no puede tener más de {1} caracteres.")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [MaxLength(50, ErrorMessage = "El {0} campo no puede tener más de {1} caracteres.")]
         [Display(Name = "Apellido")]
-        public string apellido { get; set; }
+        public string Apellido { get; set; }
         [MaxLength(20, ErrorMessage = "El {0} campo no puede tener más de {1} caracteres.")]
         [Display(Name = "Teléfono Fijo")]
-        public string telFijo { get; set; }
+        public string TelFijo { get; set; }
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [MaxLength(20, ErrorMessage = "El {0} campo no puede tener más de {1} caracteres.")]
         [Display(Name = "Teléfono Celular")]
-        public string telCelular { get; set; }
+        public string TelCelular { get; set; }
         [MaxLength(100, ErrorMessage = "El {0} campo no puede tener más de {1} caracteres.")]
         [Display(Name = "Dirección")]
-        public string direccion { get; set; }
+        public string Direccion { get; set; }
+        public ICollection<Mascota> Mascotas { get; set; }
 
         [Display(Name = "Propietario")]
-        public string NombreApellido => $"{nombre} {apellido}";
+        public string nombreApellido => $"{Nombre} {Apellido}";
         [Display(Name = "Propietario")]
-        public string NombreApellidoConDire => $"{nombre} {apellido} - {direccion}";
+        public string nombreApellidoConDire => $"{Nombre} {Apellido} - {Direccion}";
+        
     }
 }

@@ -33,7 +33,7 @@ namespace MiVeterinaria.Web.Controllers
             }
 
             var propietario = await _context.Propietarios
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (propietario == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace MiVeterinaria.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,documento,nombre,apellido,telFijo,telCelular,direccion")] Propietario propietario)
         {
-            if (id != propietario.id)
+            if (id != propietario.Id)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace MiVeterinaria.Web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PropietarioExists(propietario.id))
+                    if (!PropietarioExists(propietario.Id))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace MiVeterinaria.Web.Controllers
             }
 
             var propietario = await _context.Propietarios
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (propietario == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace MiVeterinaria.Web.Controllers
 
         private bool PropietarioExists(int id)
         {
-            return _context.Propietarios.Any(e => e.id == id);
+            return _context.Propietarios.Any(e => e.Id == id);
         }
     }
 }
