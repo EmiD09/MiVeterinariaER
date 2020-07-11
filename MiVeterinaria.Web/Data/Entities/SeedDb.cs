@@ -19,6 +19,24 @@ namespace MiVeterinaria.Web.Data.Entities
         public async Task SeedAsync()
         {
             await _context.Database.EnsureCreatedAsync();
+            await CheckRolesAsync();
+            //var administrador = await CheckUserAsync();
+            await CheckTipoMascotaAsync();
+            await CheckTipoServiciosAsync();
+            await CheckPropietariosAsync();
+            //await CheckAdministradoresAsync(administrador);
+            await CheckMascotasAsync();
+            await CheckAgendasAsync();
+        }
+
+        private async Task CheckUserAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task CheckRolesAsync()
+        {
+
         }
         private async Task CheckTipoServiciosAsync()
         {
